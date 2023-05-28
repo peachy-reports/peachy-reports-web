@@ -96,7 +96,7 @@ export default function ReportContent({results}) {
                     </Box>
                     <Box bg='#6FB7BF' minHeight='80px' minWidth='100%' padding={box.padding}>
                         <Container maxW='container.lg'>
-                            <strong>{section_5.header}</strong>: {section_5.description}
+                            <strong>{section_5.header}</strong>: {report.section_5.description}
                             <p style={{textAlign:"center"}}><strong style={{fontSize:"3em"}}>{report.section_5.body}</strong></p>
                         </Container>
                     </Box>
