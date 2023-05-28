@@ -2,10 +2,12 @@
 import React, {useEffect, useState} from "react";
 import { useParams } from 'next/navigation';
 
-async function Main() {
+async function Report() {
     const [data, setData] = useState<any>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
+    const params = useParams();
+    console.log(params, "for now");
 
     useEffect(() => {
         fetch('/api/report/generate/123', { cache: 'force-cache' })
@@ -33,4 +35,4 @@ async function Main() {
     );
 }
 
-export default Main;
+export default Report;
