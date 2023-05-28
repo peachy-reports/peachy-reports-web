@@ -1,7 +1,6 @@
 "use client"
 import { useParams } from 'next/navigation';
 import React, {useEffect, useState} from "react";
-import useFetch from "@/app/report/[id]/hooks/useFetch";
 
 async function getData() {
     const res = await fetch('/api/report/generate/123');
@@ -19,18 +18,18 @@ async function getData() {
 
 async function Quote() {
     // const { data, loading, error } = useFetch('/api/report/generate/123');
-    const [data, setdata] = useState(null);
-    const [loading, setloading] = useState(true);
-    const [error, seterror] = useState("");
+    const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState("");
 
     useEffect(() => {
         fetch('/api/report/generate/123', { cache: 'force-cache' })
             .then((res) => res.json())
             .then((data) => {
                 console.log("once!");
-                seterror(data.error)
-                setdata(data.response)
-                setloading(false)
+                setError(data.error)
+                setData(data.response)
+                setLoading(false)
             })
     }, []);
     
