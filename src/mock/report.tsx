@@ -4,7 +4,7 @@ const report = {
         year: 2023
     },
     section_1: {
-        "header":"Intro",
+        "header":"Introduction",
         "description":"Main sustainability goals and values and key metrics you want to highlight",
         "byline":"Our Mission",
         body:"Introducing Mud Jeans, the denim-loving superheroes with a sustainable twist! These eco-warriors are on a mission to save the planet, one stylish pair of jeans at a time. With their unyielding devotion to sustainability, Mud Jeans proves that you can rock the fashion world without leaving a big carbon footprint. So, buckle up your eco-friendly seatbelts and get ready to dive into a world where fashion meets environmental heroism. Get ready to look good, feel good, and save the planet, all while rocking some seriously stylish denim. Mud Jeans, because saving the world never looked so good!"
