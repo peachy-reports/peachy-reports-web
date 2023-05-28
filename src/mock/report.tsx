@@ -23,21 +23,21 @@ const report = {
         "header":"Scope 1",
         "description":"Direct emissions",
         "byline":"Our Impact",
-        body:"20t CO2"
+        body:"12.8 tCO2e"
 
     },
     section_4: {
         "header":"Scope 2",
         "description":"Emissions from energy usage",
         "byline":"Our Impact",
-        body:"20t CO2"
+        body:"3.5 tCO2e"
 
     },
     section_5: {
         "header":"Scope 3",
-        "description":"Indirect Emissions (Supply Chain and Other Activities)",
+        "description":"Global Impact",
         "byline":"Our Impact",
-        body:"20t CO2"
+        body:"69,765.4 tCO2e"
 
     },
     section_6: {

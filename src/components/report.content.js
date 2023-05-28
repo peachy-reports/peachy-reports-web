@@ -57,60 +57,61 @@ export default function ReportContent({results}) {
     return (
         <>
             <SimpleGrid columns={4} spacing={10} padding={10}>
-                <Box boxSize='sm' height={40} width={60}>
-                    <Img src='../logo.jpg' alt='logo' height={40} width={60} />
+                <Box boxSize='sm' height={40} width={40}>
+                    <Img src='../logo.png' alt='logo' height={40} width={60} />
                 </Box>
                 <Box boxSize='sm' height={40} width={"100%"}>
-                    <h1 style={{fontSize:"2em"}}>Sustainability Report</h1>
-                    <h2>2023</h2>
+                    <h1 style={{fontSize:"2.1em"}}>Veja Shoes</h1>
+                    <h1 style={{fontSize:"2.3em", color:"#0097a7"}}>Sustainability Report</h1>
+                    <h2 style={{fontSize:"1.3em"}}>2023</h2>
                 </Box>
             </SimpleGrid>
 
             <SimpleGrid columns={2} spacing={10} padding={10}>
                 <VStack spacing={10}>
                     {section_1 && (
-                        <Box bg='seashell' minHeight='80px' padding={box.padding}>
+                        <Box bg='#FFAB40' minHeight='80px' padding={box.padding}>
                             <Container maxW='container.lg'>
-                                <strong>{section_1.header}</strong>: {section_1.body}
+                                {section_1.body}
                             </Container>
                         </Box>
                     )}
-                    <Box bg='#F4E9E6' minHeight='80px' padding={box.padding}>
+                    <Box bg='#FFC973' minHeight='80px' padding={box.padding}>
                         <Container maxW='container.lg'>
-                            <strong>{section_2.header}</strong>: {section_2.body}
+                           {section_2.body}
                         </Container>
                     </Box>
                 </VStack>
                 <VStack spacing={10}>
-                    <Box bg='#6FB7BF' minHeight='80px' minWidth='100%' padding={box.padding}>
+                    <Box bg='#FFAB40' minHeight='80px' minWidth='100%' padding={box.padding}>
                         <Container maxW='container.lg' >
-                            <strong>{section_3.header}</strong>: {section_3.description}
-                            <p style={{textAlign:"center"}}><strong style={{fontSize:"3em"}}>{section_3.body}</strong></p>
+                            {section_3.description}
+                            <p style={{textAlign:"center"}}><strong style={{fontSize:"3em"}}>{report.section_3.body}</strong></p>
                         </Container>
                     </Box>
-                    <Box bg='#9AD2D8' minHeight='80px' minWidth='100%' padding={box.padding}>
+                    <Box bg='#FFC973' minHeight='80px' minWidth='100%' padding={box.padding}>
                         <Container maxW='container.lg'>
-                            <strong>{section_4.header}</strong>: {section_4.description}
-                            <p style={{textAlign:"center"}}><strong style={{fontSize:"3em"}}>{section_4.body}</strong></p>
+                            {section_4.description}
+                            <p style={{textAlign:"center"}}><strong style={{fontSize:"3em"}}>{report.section_4.body}</strong></p>
                         </Container>
                     </Box>
-                    <Box bg='#6FB7BF' minHeight='80px' minWidth='100%' padding={box.padding}>
+                    <Box bg='#FFAB40' minHeight='80px' minWidth='100%' padding={box.padding}>
                         <Container maxW='container.lg'>
-                            <strong>{section_5.header}</strong>: {section_5.description}
-                            <p style={{textAlign:"center"}}><strong style={{fontSize:"3em"}}>{section_5.body}</strong></p>
+                            {report.section_5.description}
+                            <p style={{textAlign:"center"}}><strong style={{fontSize:"3em"}}>{report.section_5.body}</strong></p>
                         </Container>
                     </Box>
                 </VStack>
             </SimpleGrid>
             <SimpleGrid spacing={10} padding={10}>
-                <Box bg='#FFF5EE' minHeight='80px' padding={box.padding}>
+                <Box bg='#FFAB40' minHeight='80px' padding={box.padding}>
                     <Container maxW='container.lg'>
-                        <strong>{section_6.header}</strong>: {section_6.body}
+                        {section_6.body}
                     </Container>
                 </Box>
-                <Box bg='seashell' minHeight='80px' padding={box.padding}>
+                <Box bg='#FFC973' minHeight='80px' padding={box.padding}>
                     <Container maxW='container.lg'>
-                        <strong>{section_7.header}</strong>: {section_7.body}
+                        {section_7.body}
                     </Container>
                 </Box>
             </SimpleGrid>

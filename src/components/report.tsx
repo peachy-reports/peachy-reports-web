@@ -2,6 +2,7 @@
 import React, {useEffect, useState} from "react";
 import { useParams } from 'next/navigation';
 import ReportContent from "@/components/report.content";
+import {Badge} from "@chakra-ui/react";
 
 async function Report() {
     const [data, setData] = useState<any>(null);
@@ -20,7 +21,9 @@ async function Report() {
     }, []);
 
     if (loading) return (
-        <div>Starting Generation</div>
+        <Badge variant='outline' colorScheme='purple'>
+            Loading Page...
+        </Badge>
     )
 
     return (
