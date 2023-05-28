@@ -57,12 +57,13 @@ export default function ReportContent({results}) {
     return (
         <>
             <SimpleGrid columns={4} spacing={10} padding={10}>
-                <Box boxSize='sm' height={40} width={60}>
-                    <Img src='../logo.jpg' alt='logo' height={40} width={60} />
+                <Box boxSize='sm' height={40} width={40}>
+                    <Img src='../logo.png' alt='logo' height={40} width={60} />
                 </Box>
                 <Box boxSize='sm' height={40} width={"100%"}>
-                    <h1 style={{fontSize:"2em"}}>Sustainability Report</h1>
-                    <h2>2023</h2>
+                    <h1 style={{fontSize:"2.1em"}}>Veja Shoes</h1>
+                    <h1 style={{fontSize:"2.3em"}}>Sustainability Report</h1>
+                    <h2 style={{fontSize:"1.3em"}}>2023</h2>
                 </Box>
             </SimpleGrid>
 
