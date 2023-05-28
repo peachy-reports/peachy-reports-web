@@ -5,8 +5,8 @@ export default function Report() {
     console.log(router, "ricky");
   return (
     <main>
-        <h1>Report</h1>
-        <h2>Section 1</h2>
+        <h1>Sustainability Report</h1>
+        <h2>hello faye</h2>
     </main>
   )
 }
