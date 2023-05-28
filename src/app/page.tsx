@@ -1,7 +1,6 @@
 'use client';
 
 import { Image, Text, Button, Link } from '@chakra-ui/react'
-import { ExternalLinkIcon } from '@chakra-ui/icons'
 export default function Home() {
   return (
     <div>
@@ -9,7 +8,7 @@ export default function Home() {
 		  borderRadius='full'
 		  boxSize='150px'
 		  src='https://i.im.ge/2023/05/28/hiqTgh.noun-peach-1554586.png'
-		  alt='Dan Abramov'
+		  alt='Peachy'
 		/>
     	<Text fontSize={36}>Peachy</Text>
         <h1></h1>
