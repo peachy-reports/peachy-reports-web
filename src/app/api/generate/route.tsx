@@ -6,18 +6,61 @@ export async function GET(request: Request) {
     const model = new OpenAI({ temperature: 0, modelName: 'gpt-4' });
     const quickModel = new OpenAI({ temperature: 0, modelName: 'gpt-3.5-turbo' });
 
-    const questions = ["What does your company make?", "How old is your company?"];
-    const inputs = ["shirts, socks, and shoes", "3 years old"];
+    let { data, error } = await supabase.from('sections').select('id, header, description');
+    if (error) console.error(error);
+    console.log("data", data);
+
     const promises = [];
-    const section = { header: "Introduction", description: "Short summary of what the company makes, what the company does, where it's based." }
 
-    let qq = await supabase.from('questions').select()
-    console.log(qq);
+    for (let section of data || []) {
+        promises.push(getSection(model, quickModel, section));
+    }
 
-    for (const i of Array.from(questions.keys())) {
-        promises.push(getAnswer(quickModel, questions[i], inputs[i]))
-        console.log(i);
-      }
+    const sections = await Promise.all(promises);
+    return NextResponse.json({ sections: sections });
+}
+
+async function getAnswer(model: OpenAI, question: string, input: string): Promise<string> {
+    const prompt = `Reword the following question, answer pair as a statement:
+    Question: ${question}
+    Answer: ${input}`;
+
+    return await model.call(prompt);
+}
+
+async function getSection(model: OpenAI, quickModel: OpenAI, section: any): Promise<string> {
+    const { data: questionIds, error: error1 } = await supabase.from('sections_questions').select('question_id').eq('section_id', section.id);
+    if (error1) console.error(error1);
+    console.log("questionIds", questionIds);
+
+    const { data: questions, error: error2 } = await supabase.from('questions').select('id, question_text').in('id', questionIds?.map(q => q.question_id) || []);
+    if (error2) console.error(error2);
+    console.log("questions", questions);
+
+    const inputs: { [key: string]: string; }  = {
+        1: "Greenie Fabrics",
+        2: "shirts, socks, and shoes",
+        3: "Las Vegas, NV",
+        4: "faith and charity",
+        5: "Biodegradable Fashion. There are a lot of child labor suppliers in the pipeline, need to avoid them. Materials extraction emits a lot of carbon into the atmosphere if not carefully sourced.",
+        6: "Emit less co2",
+        7: "Make sure providers are certified. Monitor facilities biannually",
+        8: "12000 gallons",
+        9: "propane 3k kg",
+        10: "100000",
+        11: "15 in Nevada, 3 in California",
+        12: "All employees are encouraged with a stipend to bike to work to reduce co2",
+        13: "we are the best in the west in 2022, and got the milan fashion choice award in 2021",
+        14: "John Lithgow, Emma Stone, and AZ16",
+        15: "Waste is handled by various local partners, sewing is by indiginous craftpeople"
+    };
+    const promises: Promise<string>[] = [];
+
+    questions?.forEach((question: { id: string, question_text: string}) => {
+        const id: string = question?.id;
+        const input = inputs[id];
+        promises.push(getAnswer(quickModel, question.question_text, input))
+    })
 
     const answers = await Promise.all(promises);
 
@@ -33,14 +76,5 @@ export async function GET(request: Request) {
     Write in the style of David Gelles
     `;
     const res =  await model.call(prompt);
-
-    return NextResponse.json({ answers: answers, response: res });
-}
-
-async function getAnswer(model: OpenAI, question: string, input: string): Promise<string> {
-    const prompt = `Reword the following question, answer pair as a statement:
-    Question: ${question}
-    Answer: ${input}`;
-
-    return await model.call(prompt);
+    return res;
 }
