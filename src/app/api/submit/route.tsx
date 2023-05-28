@@ -79,7 +79,8 @@ async function getSection(model: OpenAI, quickModel: OpenAI, section: any, input
     Include the following information:
     ${answers}
 
-    Write in the style of David Gelles
+    Write in the style of David Gelles.
+    Be concise. Write simply and clearly.
     `;
     const res =  await model.call(prompt);
     await supabase.from('sections').update({ body: res }).eq('id', section.id);
