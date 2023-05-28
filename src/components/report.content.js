@@ -4,6 +4,7 @@ import { Img } from '@chakra-ui/react'
 import report from "@/mock/report";
 import * as R from "ramda";
 import React, { useState, useEffect, useRef } from "react";
+import { Spinner } from '@chakra-ui/react'
 
 const { pipe, values, flatten, find, propEq } = R;
 function useInterval(callback, delay) {
@@ -69,16 +70,17 @@ export default function ReportContent({results}) {
 
             <SimpleGrid columns={2} spacing={10} padding={10}>
                 <VStack spacing={10}>
-                    {section_1 && (
-                        <Box bg='#FFAB40' minHeight='80px' padding={box.padding}>
-                            <Container maxW='container.lg'>
-                                {section_1.body}
-                            </Container>
-                        </Box>
-                    )}
+                    <Box bg='#FFAB40' minHeight='80px' padding={box.padding}>
+                        <Container maxW='container.lg'>
+                            {section_1.body}
+                            {section_1.body == "" && <Spinner color={"white"} />}
+                        </Container>
+                    </Box>
+
                     <Box bg='#FFC973' minHeight='80px' padding={box.padding}>
                         <Container maxW='container.lg'>
                            {section_2.body}
+                            {section_2.body == "" && <Spinner color={"white"} />}
                         </Container>
                     </Box>
                 </VStack>
@@ -107,11 +109,13 @@ export default function ReportContent({results}) {
                 <Box bg='#FFAB40' minHeight='80px' padding={box.padding}>
                     <Container maxW='container.lg'>
                         {section_6.body}
+                        {section_6.body == "" && <Spinner color={"white"} />}
                     </Container>
                 </Box>
                 <Box bg='#FFC973' minHeight='80px' padding={box.padding}>
                     <Container maxW='container.lg'>
                         {section_7.body}
+                        {section_7.body == "" && <Spinner color={"white"} />}
                     </Container>
                 </Box>
             </SimpleGrid>
