@@ -85,19 +85,19 @@ export default function ReportContent({results}) {
                     <Box bg='#6FB7BF' minHeight='80px' minWidth='100%' padding={box.padding}>
                         <Container maxW='container.lg' >
                             <strong>{section_3.header}</strong>: {section_3.description}
-                            <p style={{textAlign:"center"}}><strong style={{fontSize:"3em"}}>{section_3.body}</strong></p>
+                            <p style={{textAlign:"center"}}><strong style={{fontSize:"3em"}}>{report.section_3.body}</strong></p>
                         </Container>
                     </Box>
                     <Box bg='#9AD2D8' minHeight='80px' minWidth='100%' padding={box.padding}>
                         <Container maxW='container.lg'>
                             <strong>{section_4.header}</strong>: {section_4.description}
-                            <p style={{textAlign:"center"}}><strong style={{fontSize:"3em"}}>{section_4.body}</strong></p>
+                            <p style={{textAlign:"center"}}><strong style={{fontSize:"3em"}}>{report.section_4.body}</strong></p>
                         </Container>
                     </Box>
                     <Box bg='#6FB7BF' minHeight='80px' minWidth='100%' padding={box.padding}>
                         <Container maxW='container.lg'>
-                            <strong>{section_5.header}</strong>: {section_5.description}
-                            <p style={{textAlign:"center"}}><strong style={{fontSize:"3em"}}>{section_5.body}</strong></p>
+                            <strong>{section_5.header}</strong>: {report.section_5.description}
+                            <p style={{textAlign:"center"}}><strong style={{fontSize:"3em"}}>{report.section_5.body}</strong></p>
                         </Container>
                     </Box>
                 </VStack>
