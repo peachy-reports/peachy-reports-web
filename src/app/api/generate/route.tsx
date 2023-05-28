@@ -3,7 +3,7 @@ import { OpenAI } from "langchain/llms/openai";
 import { supabase } from "../../../lib/supabaseClient";
 
 export async function GET(request: Request) {
-    const model = new OpenAI({ temperature: 0, modelName: 'gpt-4' });
+    const model = new OpenAI({ temperature: 0.75, modelName: 'gpt-4' });
     const quickModel = new OpenAI({ temperature: 0, modelName: 'gpt-3.5-turbo' });
 
     let { data, error } = await supabase.from('sections').select('id, header, description');
@@ -76,5 +76,6 @@ async function getSection(model: OpenAI, quickModel: OpenAI, section: any): Prom
     Write in the style of David Gelles
     `;
     const res =  await model.call(prompt);
+    await supabase.from('sections').update({ body: res }).eq('id', section.id);
     return res;
 }
