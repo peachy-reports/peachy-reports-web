@@ -70,13 +70,10 @@ async function getSection(model: OpenAI, quickModel: OpenAI, section: any, input
 
     const answers = await Promise.all(promises);
 
-    const prompt = `You are a business executive with a fresh, breezy conversational but also professional tone.
+    const prompt = `Please write a single paragragh about ${section.description}.
+    This will be the entirety of the ${section.header} section in a brief sustainability report.
 
-    Please write a single section of a sustainability report.
-    This section is called ${section.header}
-    Here's what the section is about: ${section.description}
-
-    Include the following information:
+    Refer to the following information:
     ${answers}
 
     Be concise. Write simply and clearly.
