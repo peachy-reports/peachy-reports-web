@@ -1,10 +1,10 @@
-'use client'
-import ThemeProvider from './theme-provider';
+"use client";
+import ThemeProvider from "./theme-provider";
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
@@ -12,5 +12,5 @@ export default function RootLayout({
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
-  )
+  );
 }

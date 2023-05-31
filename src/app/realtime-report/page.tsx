@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { supabase } from "../../lib/supabaseClient";
 import RealtimeSections from "./realtime-sections";
 
@@ -8,7 +8,10 @@ export const revalidate = 0;
 // this component fetches the current sections server-side
 // and subscribes to new sections client-side
 export default async function Page() {
-  const { data } = await supabase.from("sections").select("*").order("id", { ascending: true});
+  const { data } = await supabase
+    .from("sections")
+    .select("*")
+    .order("id", { ascending: true });
 
   // data can be passed from server components to client components
   // this allows us to fetch the initial sections before rendering the page

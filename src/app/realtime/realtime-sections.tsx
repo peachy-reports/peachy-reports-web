@@ -6,7 +6,11 @@ import { supabase } from "../../lib/supabaseClient";
 // realtime subscriptions need to be set up client-side
 // this component takes initial sections as props and automatically
 // updates when new sections are updated in Supabase's `sections` table
-export default function RealtimeSections({ serverSections }: { serverSections: any }) {
+export default function RealtimeSections({
+  serverSections,
+}: {
+  serverSections: any;
+}) {
   const [sections, setSections] = useState(serverSections);
 
   useEffect(() => {
@@ -23,14 +27,17 @@ export default function RealtimeSections({ serverSections }: { serverSections: a
       .on(
         "postgres_changes",
         { event: "UPDATE", schema: "public", table: "sections" },
-        (payload) => setSections((sections: any) => {
-            const otherSections = sections.filter((section: any) => section.id !== payload.new.id);
-            if(!payload.new.body) {
-                return otherSections;
+        (payload) =>
+          setSections((sections: any) => {
+            const otherSections = sections.filter(
+              (section: any) => section.id !== payload.new.id
+            );
+            if (!payload.new.body) {
+              return otherSections;
             } else {
-                return [...otherSections, payload.new];
+              return [...otherSections, payload.new];
             }
-        })
+          })
       )
       .subscribe();
 
