@@ -7,11 +7,11 @@ export default function Home() {
       <Image
         borderRadius="full"
         boxSize="150px"
-        src="https://i.im.ge/2023/05/28/hiqTgh.noun-peach-1554586.png"
+        src="/logo.png"
         alt="Peachy"
         css="display:inline;"
       />
-      <Text fontSize={75} css="position:relative;top:-50px;display:inline;">
+      <Text fontSize={75} css="position:relative;top:-50px;display:inline;color:#ffab40;">
         Peachy
       </Text>
       <Text fontSize={24}>
@@ -22,11 +22,11 @@ export default function Home() {
       <h4>No prior sustainability expertise required. </h4>
       <h4>Fill in this form and we will do the rest. </h4>
       <br />
-      <Button colorScheme="teal" size="lg">
-        <Link color="white" href="/start">
-          Get started.
-        </Link>{" "}
-      </Button>
+      <Link color="white" href="/start">
+        <Button colorScheme="teal" size="lg">
+          Get started
+        </Button>
+      </Link>
     </Container>
   );
 }
