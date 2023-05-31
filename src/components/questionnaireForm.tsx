@@ -35,7 +35,7 @@ export default function QuestionnaireForm() {
       body: JSONdata,
     };
 
-    window.open("/report/1", "_blank");
+    window.open("/realtime-report", "_blank");
 
     // Send the form data to our forms API on Vercel and get a response.
     const response = await fetch(endpoint, options);
