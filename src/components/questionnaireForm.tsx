@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 
 import {useState} from "react";
+import DemoAlert from "./demoAlert";
 
 export default function QuestionnaireForm() {
     // Handles the submit event on form submit.
@@ -54,6 +55,7 @@ export default function QuestionnaireForm() {
     };
     return (
         <Container>
+            <DemoAlert/>
             <form onSubmit={handleSubmit}>
                 <TextInput
                     name="1"
